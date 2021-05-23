@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 50px 100px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.demolist {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}

@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { demodata } from "./demodata";
+import styles from "./App.module.css"
+import { hot } from "react-hot-loader/root";
+import { lazy, Suspense } from "react";
+import Loader from "./Components/loader/Loader";
+const Cards = lazy(() => import("./Components/Cards"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loader />}>
+      <div className={styles.wrapper}>
+        <ul className={styles.demolist}>
+          {demodata.map(ele => (
+            <li key={ele.id}>
+              <Cards {...ele} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Suspense>
   );
 }
 
-export default App;
+export default hot(App);
