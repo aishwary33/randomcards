@@ -8,8 +8,9 @@
 }
 
 .card_img {
+  height: 150px;
   min-width: 150px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .card_body {
